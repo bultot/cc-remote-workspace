@@ -1,0 +1,19 @@
+# Environment files with secrets
+.env
+.env.local
+.env.*
+!.env.op
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# 1Password generated files
+*.tpl.out
