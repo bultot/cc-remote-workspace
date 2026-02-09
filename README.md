@@ -179,6 +179,18 @@ The setup is split into 8 phases. Each phase has its own script and creates a Pr
 | 7 | manual | — | iPhone access (Happy Coder app, Blink Shell) |
 | 8 | `tests/verify-setup.sh` | Both | Verification (13 MacBook checks, 39 LXC checks) |
 
+## Disaster Recovery
+
+LXC 200 is **stateless** — all state lives in Git (GitHub) and shared config (Syncthing from MacBook). Recovery means re-creating the container and re-running the provisioning scripts. No backup restore needed.
+
+```bash
+# On the Proxmox host:
+git clone https://github.com/bultot/claude-setup.git
+bash claude-setup/scripts/disaster-recovery.sh
+```
+
+The script chains all provisioning phases automatically (~10-15 minutes), then prints manual steps for re-authentication (Tailscale, Claude Code, GitHub SSH key, Syncthing, 1Password).
+
 ## Project Structure
 
 ```
@@ -189,6 +201,7 @@ claude-setup/
 ├── STATUS.md                  # Project health (powers /status dashboard)
 ├── LICENSE                    # MIT
 ├── scripts/
+│   ├── disaster-recovery.sh   # Full rebuild from scratch (Proxmox host)
 │   ├── setup-lxc.sh           # Phase 1: LXC creation (Proxmox host)
 │   ├── provision.sh           # Phase 2: Base packages (LXC as root)
 │   ├── configure-user.sh      # Phase 3: User + shell config (LXC as root)

@@ -2,7 +2,7 @@
 
 **Status**: active
 **Last Updated**: 2026-02-09
-**Progress**: 97% (Phase 8 — burn-in pending)
+**Progress**: 98% (disaster recovery script added, burn-in pending)
 
 ## Current Focus
 
@@ -27,6 +27,7 @@ Phase 8 complete: verification script passes (MacBook 13/13, LXC 39/39), trouble
 - [x] Shell harmonization: shared zshrc, Starship prompt with CC_MACHINE identity
 - [x] Rich welcome dashboard (cc-dashboard with welcome/full/compact modes, ANSI cache)
 - [x] Shared scripts: cc-cache-refresh for pre-rendered project status + usage stats
+- [x] Disaster recovery script (scripts/disaster-recovery.sh) — full LXC 200 rebuild from scratch
 
 ## Pending
 

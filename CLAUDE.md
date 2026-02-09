@@ -59,12 +59,11 @@ claude-setup/
 ├── ROADMAP.md                # Migration phases and task tracking
 ├── STATUS.md                 # Project status (powers /status dashboard)
 ├── scripts/
+│   ├── disaster-recovery.sh  # Full rebuild of LXC 200 from scratch (Proxmox host)
 │   ├── setup-lxc.sh          # Proxmox LXC creation script
 │   ├── provision.sh          # Inside-LXC provisioning (packages, node, tailscale)
 │   ├── configure-user.sh     # Create user, shell config, Zellij, aliases
 │   ├── install-claude.sh     # Claude Code + Happy Coder install and auth
-│   ├── migrate-repos.sh      # Clone repos from GitHub to VPS
-│   ├── migrate-config.sh     # Copy Claude settings, MCP configs, API keys
 │   └── setup-macbook.sh      # MacBook thin-client SSH config and aliases
 ├── config/
 │   ├── bashrc-additions.sh    # Shell aliases and auto-Zellij wrappers
