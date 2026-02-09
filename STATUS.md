@@ -1,8 +1,8 @@
 # Claude Setup
 
-**Status**: active
+**Status**: stable
 **Last Updated**: 2026-02-09
-**Progress**: 98% (disaster recovery script added, burn-in pending)
+**Progress**: 98% (in burn-in period, resumes active after 1-week validation)
 
 ## Current Focus
 
@@ -51,5 +51,5 @@ None — ready for burn-in.
 - Thin pool space warning on Proxmox — consider snapshot rotation
 - Claude config sync uses symlinks (~/.claude/{CLAUDE.md,commands,hooks} → ~/.claude-shared/) with Syncthing
 - Starship config also symlinked: ~/.config/starship.toml → ~/.claude-shared/starship.toml
-- Dashboard cache at ~/.cache/cc-dashboard/ — auto-refreshes when stale (>30 min)
+- Dashboard cache at ~/.cache/cc-dashboard/ — auto-refreshes when stale (>10 min)
 - career-os project filtered from dashboard when on Backbase WiFi
