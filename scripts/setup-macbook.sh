@@ -88,40 +88,67 @@ else
 
 # --- CC Remote Workspace ---
 
-# Jump into default tmux session on VPS
-alias cc="ssh cc"
-
-# List all tmux sessions on the VPS
-cc-sessions() {
-    ssh cc-raw tmux list-sessions 2>/dev/null || echo "No active sessions (or VPS unreachable)"
+# Welcome banner (shows once per shell)
+() {
+    echo ""
+    echo "\033[1;36m  ╔════════════════════════════════════════════════╗"
+    echo "  ║          \033[1;37mClaude Code Remote Workspace\033[1;36m          ║"
+    echo "  ╚════════════════════════════════════════════════╝\033[0m"
+    echo ""
+    echo "  \033[1;33mRemote Sessions\033[0m  (LXC 200 via Tailscale)"
+    echo "    cc                SSH → Zellij main session"
+    echo "    cc-sessions       List remote sessions"
+    echo "    cc-project \033[2m<name>\033[0m  Named project session"
+    echo "    cc-claude \033[2m[dir]\033[0m    Claude Code in project"
+    echo "    cc-happy \033[2m[dir]\033[0m     Happy Coder for phone relay"
+    echo ""
+    echo "  \033[1;33mZellij Shortcuts\033[0m"
+    echo "    Ctrl-p            Pane mode (split, move, resize)"
+    echo "    Ctrl-t            Tab mode (new, rename, switch)"
+    echo "    Ctrl-s            Scroll / search mode"
+    echo "    Ctrl-o            Session manager"
+    echo "    Ctrl-q            Quit (session stays alive)"
+    echo "    Alt-n             New pane    Alt-d  Detach"
+    echo "    Alt-1/2/3         Switch tabs"
+    echo ""
 }
 
-# Jump into a project-specific tmux session on the VPS
+# Jump into default Zellij session on VPS
+alias cc="ssh cc"
+
+# List all Zellij sessions on the VPS
+cc-sessions() {
+    ssh cc-raw "zellij list-sessions 2>/dev/null" || echo "No active sessions (or VPS unreachable)"
+}
+
+# Jump into a project-specific Zellij session on the VPS
 # Usage: cc-project myproject
 cc-project() {
     local name="${1:?Usage: cc-project <session-name>}"
-    ssh -t cc-raw "tmux new-session -A -s ${name}"
+    ssh -t cc-raw "zellij attach --create ${name}"
 }
 
-# Start a Claude Code session in a named tmux window on the VPS
+# Start a Claude Code session in a named Zellij session on the VPS
+# Uses the claude() wrapper on the LXC which auto-creates the Zellij session
 # Usage: cc-claude [project-dir]
 cc-claude() {
     local dir="${1:-}"
     if [[ -n "${dir}" ]]; then
-        ssh -t cc-raw "tmux new-session -A -s claude-${dir} 'cd ~/projects/${dir} && claude'"
+        ssh -t cc-raw "cd ~/projects/${dir} && bash -ic 'claude'"
     else
-        ssh -t cc-raw "tmux new-session -A -s claude 'claude'"
+        ssh -t cc-raw "bash -ic 'claude'"
     fi
 }
 
 # Start a Happy Coder session on the VPS (for phone relay)
+# Uses the happy() wrapper on the LXC which auto-creates the Zellij session
 # Usage: cc-happy [project-dir]
 cc-happy() {
     local dir="${1:-}"
     if [[ -n "${dir}" ]]; then
-        ssh -t cc-raw "tmux new-session -A -s happy-${dir} 'cd ~/projects/${dir} && happy'"
+        ssh -t cc-raw "cd ~/projects/${dir} && bash -ic 'happy'"
     else
-        ssh -t cc-raw "tmux new-session -A -s happy 'happy'"
+        ssh -t cc-raw "bash -ic 'happy'"
     fi
 }
 

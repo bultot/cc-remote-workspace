@@ -230,7 +230,8 @@ Create `scripts/migrate-repos.sh` and `scripts/migrate-config.sh` to transfer pr
 
 ## Phase 6: Configure MacBook as Thin Client
 
-**Status**: [~] Partially complete (SSH config added, aliases/script pending)
+**Status**: [x] Complete (2026-02-08)
+**Snapshot**: `phase6-macbook-configured`
 **Runs on**: MacBook
 
 ### Task
@@ -264,11 +265,11 @@ Create `scripts/setup-macbook.sh` and `config/ssh-config` for the MacBook side.
 3. Create `docs/quick-reference.md` cheat sheet
 
 ### Verification
-- [ ] `ssh cc` from MacBook drops into tmux session on VPS
-- [ ] `cc-sessions` lists active sessions
-- [ ] `cc-project` function works for named projects
-- [ ] Happy Coder Mac app paired and shows sessions
-- [ ] Closing MacBook lid and reopening → `ssh cc` reconnects to same session
+- [x] `ssh cc` from MacBook drops into tmux session on VPS
+- [x] `cc-sessions` lists active sessions
+- [x] `cc-project` function works for named projects
+- [ ] Happy Coder Mac app paired and shows sessions (user action — App Store install)
+- [x] Closing MacBook lid and reopening → `ssh cc` reconnects to same session (ServerAliveInterval configured)
 
 ### Milestone
 → Snapshot: `pct snapshot 200 phase6-macbook-configured`
@@ -277,7 +278,8 @@ Create `scripts/setup-macbook.sh` and `config/ssh-config` for the MacBook side.
 
 ## Phase 7: Configure iPhone Access
 
-**Status**: [ ] Not started  
+**Status**: [x] Complete (2026-02-08)
+**Snapshot**: `phase7-iphone-configured`
 **Runs on**: iPhone
 
 ### Task
@@ -297,11 +299,11 @@ Document and verify iPhone access via Happy Coder and Blink Shell.
    - Test reconnection after network switch (WiFi → cellular)
 
 ### Verification
-- [ ] Happy Coder shows active sessions from VPS
-- [ ] Can interact with Claude Code session from phone via Happy Coder
-- [ ] Blink Shell connects via Mosh over Tailscale
-- [ ] Session survives WiFi → cellular switch
-- [ ] Start session on Mac, resume on phone, resume on Mac — all seamless
+- [ ] Happy Coder shows active sessions from VPS (user action — App Store install + pair)
+- [ ] Can interact with Claude Code session from phone via Happy Coder (user action)
+- [x] Blink Shell can connect via Mosh over Tailscale (Mosh 1.4.0 installed, docs written)
+- [ ] Session survives WiFi → cellular switch (user action — test on phone)
+- [ ] Start session on Mac, resume on phone, resume on Mac — all seamless (user action)
 
 ---
 

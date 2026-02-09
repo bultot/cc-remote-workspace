@@ -14,7 +14,7 @@ Host cc
     HostName claude-code
     User robin
     RequestTTY yes
-    RemoteCommand tmux new-session -A -s main
+    RemoteCommand zellij attach --create main
     # Keep connection alive over flaky networks / lid-close
     ServerAliveInterval 30
     ServerAliveCountMax 3
