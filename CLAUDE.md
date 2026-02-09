@@ -33,12 +33,13 @@ Access paths:
   MacBook → Ghostty SSH      → Tailscale → VPS
   Browser → Happy Coder web  → relay → VPS
 
-Shared config (synced via Syncthing):
-  ~/.claude-shared/
-  ├── CLAUDE.md, commands/, hooks/  → symlinked into ~/.claude/
-  ├── starship.toml                 → symlinked to ~/.config/starship.toml
-  ├── zshrc-shared.sh               → sourced by machine-specific .zshrc
-  └── bin/cc-dashboard, cc-cache-refresh  → welcome dashboard scripts
+Shared config (synced via Syncthing, git-versioned for rollback):
+  ~/.claude-shared/                        ← also a local git repo
+  ├── CLAUDE.md, commands/, hooks/         → symlinked into ~/.claude/
+  ├── keybindings.json                     → symlinked into ~/.claude/
+  ├── starship.toml                        → symlinked to ~/.config/starship.toml
+  ├── zshrc-shared.sh                      → sourced by machine-specific .zshrc
+  └── bin/cc-dashboard, cc-cache-refresh   → welcome dashboard scripts
 ```
 
 ## Tech Stack

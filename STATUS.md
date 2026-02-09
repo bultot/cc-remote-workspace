@@ -28,11 +28,13 @@ Phase 8 complete: verification script passes (MacBook 13/13, LXC 39/39), trouble
 - [x] Rich welcome dashboard (cc-dashboard with welcome/full/compact modes, ANSI cache)
 - [x] Shared scripts: cc-cache-refresh for pre-rendered project status + usage stats
 - [x] Disaster recovery script (scripts/disaster-recovery.sh) — full LXC 200 rebuild from scratch
+- [x] keybindings.json added to Syncthing sync (symlinked + restore-symlinks.sh updated)
+- [x] ~/.claude-shared/ initialized as git repo (rollback safety for Syncthing-synced config)
 
 ## Pending
 
 - [ ] 1-week burn-in: use VPS exclusively
-- [ ] Pair Happy Coder on iPhone (scan QR from `screen -r happy-relay`)
+- [x] Pair Happy Coder on iPhone (scan QR from `screen -r happy-relay`)
 - [x] Install zsh + Starship + eza on LXC (matching MacBook shell experience)
 - [ ] Test MCP servers end-to-end on LXC (need `op signin` on LXC first)
 - [ ] Authenticate Salesforce CLI on LXC (`sf auth`)
